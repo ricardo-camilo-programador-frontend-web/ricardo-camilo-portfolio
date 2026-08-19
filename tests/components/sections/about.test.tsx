@@ -13,8 +13,8 @@ describe("About", () => {
 
 	it("renders skills list", () => {
 		render(<About />);
-		expect(screen.getByText("React")).toBeInTheDocument();
-		expect(screen.getByText("TypeScript")).toBeInTheDocument();
-		expect(screen.getByText("Next.js")).toBeInTheDocument();
+		expect(screen.getAllByText("React").length).toBeGreaterThan(0);
+		expect(screen.getAllByText("TypeScript").length).toBeGreaterThan(0);
+		expect(screen.getAllByText("Next.js").length).toBeGreaterThan(0);
 	});
 });

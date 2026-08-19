@@ -1,3 +1,4 @@
+import { SkipToContent } from "@/components/SkipToContent";
 import { SITE } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -55,7 +56,10 @@ export default async function RootLayout({
 				<link rel="preconnect" href="https://api.github.com" />
 				<link rel="dns-prefetch" href="https://api.github.com" />
 			</head>
-			<body className={`${inter.className} antialiased`}>{children}</body>
+			<body className={`${inter.className} antialiased`}>
+				<SkipToContent />
+				{children}
+			</body>
 		</html>
 	);
 }

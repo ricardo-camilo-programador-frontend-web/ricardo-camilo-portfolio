@@ -95,6 +95,7 @@ export function Contact({ className }: ContactProps) {
 	return (
 		<motion.section
 			id="contato"
+			aria-labelledby="contato-heading"
 			className={cn("py-20 md:py-32", className)}
 			variants={containerVariants}
 			initial="hidden"
@@ -102,7 +103,12 @@ export function Contact({ className }: ContactProps) {
 		>
 			<div className="container mx-auto px-4">
 				<motion.div variants={itemVariants} className="max-w-2xl">
-					<h2 className="text-3xl font-bold tracking-tight">Contato</h2>
+					<h2
+						id="contato-heading"
+						className="text-3xl font-bold tracking-tight"
+					>
+						Contato
+					</h2>
 					<p className="mt-4 max-w-2xl text-muted-foreground">
 						Tem um projeto em mente ou quer apenas dizer olá? Preencha o
 						formulário abaixo e eu retornarei em breve.
@@ -111,6 +117,8 @@ export function Contact({ className }: ContactProps) {
 
 				<motion.form
 					onSubmit={handleSubmit}
+					aria-label="Formulário de contato"
+					noValidate
 					className="mt-12 grid gap-6"
 					variants={containerVariants}
 				>

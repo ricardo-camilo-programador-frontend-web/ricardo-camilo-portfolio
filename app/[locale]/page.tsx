@@ -54,7 +54,7 @@ export default async function Home({
 			<JsonLd data={profilePage} />
 			<JsonLd data={breadcrumb} />
 			<Hero />
-			<main className="container mx-auto px-4 pb-16">
+			<main id="main-content" className="container mx-auto px-4 pb-16">
 				<Projects repos={repos} />
 			</main>
 			<About />

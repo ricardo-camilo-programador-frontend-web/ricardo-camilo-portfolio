@@ -27,6 +27,7 @@ const itemVariants = {
 export function Hero() {
 	return (
 		<motion.section
+			aria-label="Introdução"
 			className="py-20 md:py-32"
 			variants={containerVariants}
 			initial="hidden"
@@ -61,6 +62,7 @@ export function Hero() {
 						<a
 							href="/cv.pdf"
 							download
+							aria-label="Download do currículo em PDF"
 							className={cn("flex items-center gap-2")}
 						>
 							<Download className="h-4 w-4" />

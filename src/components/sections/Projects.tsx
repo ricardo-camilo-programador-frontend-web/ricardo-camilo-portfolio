@@ -32,6 +32,7 @@ export function Projects({ repos }: ProjectsProps) {
 	return (
 		<motion.section
 			id="projetos"
+			aria-labelledby="projetos-heading"
 			className="py-20 md:py-32"
 			variants={containerVariants}
 			initial="hidden"
@@ -39,7 +40,12 @@ export function Projects({ repos }: ProjectsProps) {
 		>
 			<div className="container mx-auto px-4 space-y-16">
 				<motion.div variants={itemVariants}>
-					<h2 className="text-3xl font-bold tracking-tight">Projetos</h2>
+					<h2
+						id="projetos-heading"
+						className="text-3xl font-bold tracking-tight"
+					>
+						Projetos
+					</h2>
 					<p className="mt-4 max-w-2xl text-muted-foreground">
 						Uma seleção dos meus projetos mais recentes e relevantes no GitHub.
 						Código aberto, TypeScript, React e mais.

@@ -60,6 +60,7 @@ export function About() {
 	return (
 		<motion.section
 			id="sobre-mim"
+			aria-labelledby="sobre-mim-heading"
 			className="py-20 md:py-32"
 			variants={containerVariants}
 			initial="hidden"
@@ -67,7 +68,12 @@ export function About() {
 		>
 			<div className="container mx-auto px-4 space-y-16">
 				<motion.div variants={itemVariants}>
-					<h2 className="text-3xl font-bold tracking-tight">Sobre Mim</h2>
+					<h2
+						id="sobre-mim-heading"
+						className="text-3xl font-bold tracking-tight"
+					>
+						Sobre Mim
+					</h2>
 					<p className="mt-4 max-w-2xl text-muted-foreground">
 						Desenvolvedor frontend apaixonado por criar experiências rápidas,
 						acessíveis e visualmente agradáveis. Especializado em React, Next.js

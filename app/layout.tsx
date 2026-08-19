@@ -1,3 +1,4 @@
+import { Analytics } from "@/components/Analytics";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SITE } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -59,6 +60,7 @@ export default async function RootLayout({
 			<body className={`${inter.className} antialiased`}>
 				<SkipToContent />
 				{children}
+				<Analytics />
 			</body>
 		</html>
 	);

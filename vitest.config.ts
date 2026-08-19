@@ -9,4 +9,9 @@ export default defineConfig({
 		include: ["tests/**/*.test.{tsx,ts,jsx,js}"],
 		setupFiles: [],
 	},
+	resolve: {
+		alias: {
+			"@": "/home/desenvolvedor/Documentos/github/rc/src",
+		},
+	},
 });

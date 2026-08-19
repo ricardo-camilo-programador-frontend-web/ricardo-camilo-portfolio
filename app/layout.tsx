@@ -1,11 +1,15 @@
-import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { SITE } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
-import { SITE } from "@/lib/seo";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	display: "swap",
+	preload: true,
+	variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE.url),
@@ -46,8 +50,12 @@ export default async function RootLayout({
 }) {
 	const locale = await getLocale();
 	return (
-		<html lang={locale} suppressHydrationWarning>
-			<body className={inter.className}>{children}</body>
+		<html lang={locale} suppressHydrationWarning className={inter.variable}>
+			<head>
+				<link rel="preconnect" href="https://api.github.com" />
+				<link rel="dns-prefetch" href="https://api.github.com" />
+			</head>
+			<body className={`${inter.className} antialiased`}>{children}</body>
 		</html>
 	);
 }

@@ -1,12 +1,23 @@
 import { JsonLd } from "@/components/JsonLd";
-import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
-import { Projects } from "@/components/sections/Projects";
 import { type Locale, locales } from "@/i18n/config";
 import { getJsonLd } from "@/lib/seo";
 import type { GitHubRepo } from "@/types";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
+
+const About = dynamic(
+	() => import("@/components/sections/About").then((mod) => mod.About),
+	{ ssr: true },
+);
+const Contact = dynamic(
+	() => import("@/components/sections/Contact").then((mod) => mod.Contact),
+	{ ssr: true },
+);
+const Projects = dynamic(
+	() => import("@/components/sections/Projects").then((mod) => mod.Projects),
+	{ ssr: true },
+);
 
 async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
 	const response = await fetch(

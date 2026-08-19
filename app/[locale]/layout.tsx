@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { type Locale, locales } from "@/i18n/config";
 import { buildMetadata } from "@/lib/seo";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -44,6 +45,7 @@ export default async function LocaleLayout({
 	return (
 		<NextIntlClientProvider messages={messages} locale={resolvedLocale}>
 			<ThemeProvider>
+				<ServiceWorkerRegister />
 				<Header />
 				<main className="container mx-auto px-4 pb-16">{children}</main>
 				<Footer />

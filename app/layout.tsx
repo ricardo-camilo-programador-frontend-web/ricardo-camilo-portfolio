@@ -1,3 +1,4 @@
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";

@@ -1,0 +1,49 @@
+{
+	"nav": {
+		"home": "Home",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"hero": {
+		"subtitle": "Frontend Engineer | React | Next.js",
+		"projectsButton": "View Projects",
+		"cvButton": "Download CV"
+	},
+	"about": {
+		"title": "About Me",
+		"description": "Passionate frontend developer creating fast, accessible, and visually pleasing experiences. Specialized in React, Next.js, and TypeScript, with experience in Vue.js and fullstack systems. I believe in clean code, automated tests, and clear documentation.",
+		"skillsTitle": "Skills",
+		"experienceTitle": "Experience"
+	},
+	"projects": {
+		"title": "Projects",
+		"description": "A selection of my most recent and relevant projects on GitHub. Open source, TypeScript, React, and more.",
+		"viewCode": "View code"
+	},
+	"contact": {
+		"title": "Contact",
+		"description": "Have a project in mind or just want to say hello? Fill out the form below and I'll get back to you soon.",
+		"submitButton": "Send",
+		"submittingButton": "Sending...",
+		"fields": {
+			"name": "Name",
+			"email": "Email",
+			"message": "Message"
+		},
+		"errors": {
+			"nameRequired": "Name is required",
+			"emailRequired": "Email is required",
+			"emailInvalid": "Invalid email",
+			"messageRequired": "Message is required",
+			"messageTooShort": "Message must be at least 10 characters"
+		}
+	},
+	"footer": {
+		"copyright": "All rights reserved."
+	},
+	"language": {
+		"pt": "PT",
+		"en": "EN",
+		"toggleLabel": "Select language"
+	}
+}

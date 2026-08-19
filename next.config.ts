@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
 	outputFileTracingRoot: __dirname,
 	images: { formats: ["image/avif", "image/webp"] },
 };
 
-export default nextConfig;
+export default createNextIntlPlugin()(nextConfig);

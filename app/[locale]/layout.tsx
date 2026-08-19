@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { type Locale, defaultLocale, locales } from "@/i18n/config";
+import { type Locale, locales } from "@/i18n/config";
+import { buildMetadata } from "@/lib/seo";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -12,43 +13,16 @@ export function generateStaticParams() {
 	return locales.map((locale) => ({ locale }));
 }
 
-const titles: Record<Locale, string> = {
-	pt: "Ricardo Camilo | Frontend Engineer",
-	en: "Ricardo Camilo | Frontend Engineer",
-};
-
-const descriptions: Record<Locale, string> = {
-	pt: "Portfolio profissional de Ricardo Camilo — Frontend Engineer especializado em React, TypeScript e experiências web modernas.",
-	en: "Professional portfolio of Ricardo Camilo — Frontend Engineer specializing in React, TypeScript, and modern web experiences.",
-};
-
 export async function generateMetadata({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const resolvedLocale = locale as Locale;
-
-	if (!locales.includes(resolvedLocale)) {
+	if (!locales.includes(locale as Locale)) {
 		notFound();
 	}
-
-	return {
-		title: titles[resolvedLocale],
-		description: descriptions[resolvedLocale],
-		alternates: {
-			canonical: `/${resolvedLocale}`,
-			languages: {
-				pt: "/pt",
-				en: "/en",
-			},
-		},
-		openGraph: {
-			locale: resolvedLocale === "pt" ? "pt_BR" : "en_US",
-			siteName: "Ricardo Camilo | Portfolio",
-		},
-	};
+	return buildMetadata(locale as Locale);
 }
 
 export default async function LocaleLayout({

@@ -1,29 +1,18 @@
+import { locales } from "@/i18n/config";
+import { SITE } from "@/lib/seo";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = "https://ricardocamilo.dev";
-
-	const routes = [
-		{ path: "/pt", priority: 0.8, changeFrequency: "weekly" as const },
-		{ path: "/en", priority: 0.8, changeFrequency: "weekly" as const },
-		{
-			path: "/pt/projetos",
-			priority: 0.7,
-			changeFrequency: "monthly" as const,
-		},
-		{ path: "/pt/contato", priority: 0.7, changeFrequency: "monthly" as const },
-		{
-			path: "/en/projetos",
-			priority: 0.7,
-			changeFrequency: "monthly" as const,
-		},
-		{ path: "/en/contato", priority: 0.7, changeFrequency: "monthly" as const },
-	];
-
-	return routes.map((route) => ({
-		url: `${baseUrl}${route.path}`,
+	// ponytail: single page per locale; add per-route entries when real subroutes exist
+	return locales.map((locale) => ({
+		url: `${SITE.url}/${locale}`,
 		lastModified: new Date(),
-		changeFrequency: route.changeFrequency,
-		priority: route.priority,
+		changeFrequency: "monthly",
+		priority: 1,
+		alternates: {
+			languages: Object.fromEntries(
+				locales.map((alt) => [alt, `${SITE.url}/${alt}`]),
+			),
+		},
 	}));
 }
